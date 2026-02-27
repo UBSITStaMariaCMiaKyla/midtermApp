@@ -1,0 +1,28 @@
+<nav class="navbar">
+    <div class="nav-left">
+      <a class="brand" routerLink="/home">Midterm</a>
+    </div>
+  
+    <ul class="nav-links">
+      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+  
+      <li><a routerLink="/components" routerLinkActive="active">Components</a></li>
+  
+      <li><a routerLink="/routing" routerLinkActive="active">Routing</a></li>
+  
+      <li class="dropdown">
+        <button class="dropbtn" type="button">
+          Data Binding <span class="caret">▾</span>
+        </button>
+  
+        <ul class="dropdown-menu">
+          <li><a routerLink="/databinding/interpolation" routerLinkActive="active">Interpolation</a></li>
+          <li><a routerLink="/databinding/property" routerLinkActive="active">Property Binding</a></li>
+          <li><a routerLink="/databinding/event" routerLinkActive="active">Event Binding</a></li>
+          <li><a routerLink="/databinding/two-way" routerLinkActive="active">Two-Way Binding</a></li>
+        </ul>
+      </li>
+  
+      <li><a routerLink="/other" routerLinkActive="active">Other</a></li>
+    </ul>
+  </nav>
