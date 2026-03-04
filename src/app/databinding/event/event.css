@@ -1,0 +1,40 @@
+:host { display: block; }
+.container { max-width: 860px; }
+h3 { font-size: 1.4rem; font-weight: 700; color: #ddeaf6; padding-bottom: 10px; border-bottom: 1px solid rgba(100,155,195,0.14); margin-bottom: 14px; }
+
+.mouse-tracker {
+  background: #172438;
+  border: 1px solid rgba(100, 155, 195, 0.22);
+  border-radius: 10px;
+  padding: 20px;
+  cursor: crosshair;
+  color: #8aaec8;
+  font-size: 14px;
+  margin: 8px 0;
+  user-select: none;
+}
+
+.dblclick-area,
+.rightclick-area {
+  background: #172438;
+  border: 1px solid rgba(100, 155, 195, 0.22);
+  border-radius: 10px;
+  padding: 16px 20px;
+  color: #8aaec8;
+  font-size: 14px;
+  margin: 8px 0;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+.dblclick-area:hover, .rightclick-area:hover { background: #1f3049; }
+
+.event-log {
+  background: rgba(8, 13, 22, 0.7);
+  border: 1px solid rgba(100, 155, 195, 0.15);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 8px;
+}
+.event-log strong { color: #9ec4e0; font-size: 13px; }
+.event-log p { font-size: 12.5px; color: #6098c0; margin: 4px 0; font-family: 'JetBrains Mono', monospace; }

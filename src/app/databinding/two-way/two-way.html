@@ -1,1 +1,142 @@
-<p>two-way works!</p>
+<div class="container mt-3">
+    <h3>Two-Way Binding</h3>
+    <p class="lead">Two-way binding allows you to synchronize data between the component and the template in both directions using <code>[(ngModel)]</code>.</p>
+    <p>When you use <code>[(ngModel)]</code>, changes to the input field update the component property, and changes to the component property update the input field.</p>
+  
+    <div class="card mb-3">
+      <div class="card-header">Examples</div>
+      <div class="card-body">
+  
+        <h2>A — Basic Text Input</h2>
+        <input type="text" [(ngModel)]="twoWName" class="form-control" style="width:50%"
+               placeholder="Enter text here..." />
+        <p class="mt-2">You entered: <strong>{{ twoWName }}</strong></p>
+  
+        <h2>B — Full Name</h2>
+        <label class="form-label">Full Name:</label>
+        <input type="text" [(ngModel)]="twoWayName" class="form-control" style="width:50%"
+               placeholder="Enter name" />
+        <p>Name preview: <strong>{{ twoWayName }}</strong></p>
+  
+        <h2>C — Email</h2>
+        <label class="form-label">Email:</label>
+        <input type="email" [(ngModel)]="twoWayEmail" class="form-control" style="width:50%"
+               placeholder="Enter email" />
+  
+        <h2>D — Age Slider</h2>
+        <label class="form-label">Age: {{ twoWayAge }}</label>
+        <input type="range" min="18" max="60" [(ngModel)]="twoWayAge" class="form-range" style="width:50%" />
+  
+        <h2>E — Gender Radio Buttons</h2>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="male"
+                 [(ngModel)]="twoWayGender" value="male">
+          <label class="form-check-label" for="male">Male</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="female"
+                 [(ngModel)]="twoWayGender" value="female">
+          <label class="form-check-label" for="female">Female</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="other"
+                 [(ngModel)]="twoWayGender" value="other">
+          <label class="form-check-label" for="other">Other</label>
+        </div>
+        <p>Selected gender: {{ twoWayGender }}</p>
+  
+        <h2>F — Checkbox</h2>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="twoWaySubscribed" id="subscribe" />
+          <label class="form-check-label" for="subscribe">Subscribe to newsletter</label>
+        </div>
+        <p>Subscribed: {{ twoWaySubscribed }}</p>
+  
+        <h2>G — Range Slider</h2>
+        <input type="range" min="0" max="100" [(ngModel)]="rangeValue" class="form-range" style="width:50%">
+        <p>Range Value: {{ rangeValue }}</p>
+  
+        <h2>H — Select Dropdown</h2>
+        <select [(ngModel)]="twoWayLanguage" class="form-select" style="width:50%">
+          <option value="" disabled>Select an option</option>
+          @for (p of programmingLanguages; track p) {
+            <option [value]="p">{{ p }}</option>
+          }
+        </select>
+        <p>Selected Language: {{ twoWayLanguage }}</p>
+  
+        <h2>I — Color Picker</h2>
+        <label class="form-label">Favorite Color:
+          <input type="color" [(ngModel)]="twoWayColor" />
+        </label>
+        <div class="color-swatch" [style.background-color]="twoWayColor">
+          Color: {{ twoWayColor }}
+        </div>
+  
+        <h2>J — Live Profile Summary</h2>
+        <div class="profile-summary">
+          <strong>Live Profile:</strong>
+          <p>{{ profileSummary }}</p>
+        </div>
+        <button class="btn btn-primary mt-2" (click)="resetForm()">Reset All Fields</button>
+  
+        <h2>K — Employee Table with Modal</h2>
+        <table class="table table-dark table-striped table-hover mt-2">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>NAME</th>
+              <th>DEPARTMENT</th>
+              <th>VIEW</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (u of user; track u.id) {
+              <tr [class.table-active]="selectedId === u.id">
+                <th>{{ u.id }}</th>
+                <td>{{ u.name }}</td>
+                <td>{{ u.department }}</td>
+                <td>
+                  <button type="button" class="btn btn-info btn-sm"
+                          data-bs-toggle="modal" data-bs-target="#employeeModal"
+                          (click)="onClick(u)">
+                    View Details
+                  </button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+  
+        <!-- Modal -->
+        <div class="modal fade" id="employeeModal" tabindex="-1"
+             aria-labelledby="employeeModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content" style="background:#1b2c42; border:1px solid rgba(100,155,195,0.22); color:#ddeaf6;">
+              <div class="modal-header" style="border-bottom:1px solid rgba(100,155,195,0.15);">
+                <h5 class="modal-title" id="employeeModalLabel">Employee Details</h5>
+                <button type="button" class="btn-close btn-close-white"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>ID:</p>
+                <input type="text" [(ngModel)]="selectedId" class="form-control" readonly />
+                <p>Name:</p>
+                <input type="text" [(ngModel)]="selectedName" class="form-control" readonly />
+                <p>Department:</p>
+                <input type="text" [(ngModel)]="selectedDepartment" class="form-control" readonly />
+                <p>Position:</p>
+                <input type="text" [(ngModel)]="selectedPosition" class="form-control" readonly />
+                <p>Role:</p>
+                <input type="text" [(ngModel)]="selectedRole" class="form-control" readonly />
+              </div>
+              <div class="modal-footer" style="border-top:1px solid rgba(100,155,195,0.15);">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>

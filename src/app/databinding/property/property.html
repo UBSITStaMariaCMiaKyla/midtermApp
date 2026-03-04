@@ -1,1 +1,41 @@
-<p>property works!</p>
+<div class="container mt-3">
+    <h3>Property Binding</h3>
+    <p class="lead">Property binding in Angular allows you to bind a component property to an element property. It is a one-way binding from the component to the view.</p>
+    <p>Syntax: <code>[property]="expression"</code></p>
+    <p>In this syntax, <code>property</code> is the name of the DOM property you want to bind to, and <code>expression</code> is a JavaScript expression that evaluates to the value you want to assign.</p>
+    <p>Property binding is used to set the value of an element property, affecting the behavior or appearance of the element.</p>
+  
+    <div class="card mb-3">
+      <div class="card-header">Property Binding</div>
+      <div class="card-body">
+        <h4 class="card-title">Examples</h4>
+        <pre><code>&lt;img [src]="imageSource" [alt]="imageAlt"&gt;</code></pre>
+        <p>In this example, the <code>src</code> and <code>alt</code> properties of the <code>&lt;img&gt;</code> element are bound to component properties.</p>
+  
+        <h2>A — Disabled Button <code>[disabled]</code></h2>
+        <p>Without <code>[ ]</code>, any non-empty string is truthy in HTML and always disables the button.</p>
+        <button type="button" class="btn btn-primary"
+                [disabled]="isButtonDisabled"
+                (click)="onButtonClick()">
+          Click Me (disabled until clicked once)
+        </button>
+        <p class="mt-2">Clicked: {{ clickCount }} time(s)</p>
+  
+        <h2>B — Image Source <code>[src]</code>, <code>[alt]</code>, <code>[width]</code></h2>
+        <p>Bind to <code>img.src</code> and <code>img.alt</code> DOM properties.</p>
+        <img [src]="imageSource" [alt]="imageAlt" [width]="imageWidth" />
+  
+        <h2>C — Anchor Href <code>[href]</code></h2>
+        <p>Bind to <code>href</code> via property binding.</p>
+        <a [href]="linkUrl" target="_blank">{{ linkUrl }}</a><br><br>
+        <a [href]="linkUrl" class="btn btn-primary" target="_blank">Visit UB Site</a>
+  
+        <h2>D — Input Placeholder <code>[placeholder]</code></h2>
+        <p>Bind to the <code>placeholder</code> property of an input.</p>
+        <label class="form-label" for="inputDefault">Type your name here</label>
+        <input type="text" class="form-control" style="width:50%"
+               [placeholder]="inputPlaceholder" id="inputDefault" />
+  
+      </div>
+    </div>
+  </div>

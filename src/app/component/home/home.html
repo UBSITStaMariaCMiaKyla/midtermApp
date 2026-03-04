@@ -1,1 +1,39 @@
-<p>home works!</p>
+<div class="home-wrapper">
+
+    <div class="home-hero">
+      <h1 class="hero-title">Midterm <span class="hero-accent">App</span> 🍓</h1>
+      <p class="hero-sub">
+        A hands-on reference for Angular data binding techniques —
+        interpolation, property binding, event binding, and two-way binding.
+      </p>
+    </div>
+  
+    <div class="topic-grid">
+  
+      <a routerLink="/databinding/interpolation" class="topic-card">
+        <div class="topic-icon">{{ interpolationIcon }}</div>
+        <h3>Interpolation</h3>
+        <p>Display dynamic values from your component directly in the template using double curly braces.</p>
+      </a>
+  
+      <a routerLink="/databinding/property" class="topic-card">
+        <div class="topic-icon">{{ propertyIcon }}</div>
+        <h3>Property Binding</h3>
+        <p>Bind component data to DOM element properties using square bracket syntax.</p>
+      </a>
+  
+      <a routerLink="/databinding/event" class="topic-card">
+        <div class="topic-icon">{{ eventIcon }}</div>
+        <h3>Event Binding</h3>
+        <p>Listen and respond to user actions like clicks, keystrokes, and form inputs.</p>
+      </a>
+  
+      <a routerLink="/databinding/two-way" class="topic-card">
+        <div class="topic-icon">{{ twoWayIcon }}</div>
+        <h3>Two-Way Binding</h3>
+        <p>Sync data between the component and the template simultaneously with ngModel.</p>
+      </a>
+  
+    </div>
+  
+  </div>

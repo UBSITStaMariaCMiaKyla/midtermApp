@@ -1,1 +1,91 @@
-<p>event works!</p>
+<div class="container mt-3">
+    <h3>Event Binding</h3>
+    <p class="lead">Event binding in Angular allows you to listen for and respond to user events such as clicks, input changes, and form submissions. It is a one-way binding from the view to the component.</p>
+    <p>Syntax: <code>(event)="handler"</code></p>
+    <p>In this syntax, <code>event</code> is the name of the DOM event (e.g., <code>click</code>, <code>input</code>, <code>submit</code>), and <code>handler</code> is a method in your component called when the event fires.</p>
+  
+    <div class="card mb-3">
+      <div class="card-header">Event Binding</div>
+      <div class="card-body">
+        <h4 class="card-title">Examples</h4>
+        <pre><code>&lt;button (click)="onButtonClick()"&gt;Click Me&lt;/button&gt;</code></pre>
+  
+        <h2>A — Click Event <code>(click)</code></h2>
+        <button type="button" class="btn btn-warning col-3"
+                [disabled]="isButtonDisabled"
+                (click)="onButtonClick()">{{ buttonLabel }}</button>
+        <br><br>
+        <p><code>(click)</code> fires on mouse click or touch.</p>
+        <button type="button" class="btn btn-info col-3"
+                (click)="onButtonClick()">
+          Clicked {{ clickCount }} time(s)
+        </button>
+  
+        <h2>B — Keyboard Event <code>(keyup)</code></h2>
+        <p><code>$event</code> is the native KeyboardEvent passed to the handler.</p>
+        <input type="text" class="form-control mt-2" style="width:20em"
+               placeholder="Press any key..."
+               (keyup)="onKeyPress($event)" />
+        <p>Last key pressed: <code>{{ lastKeyPressed }}</code></p>
+  
+        <h2>C — Mouse Move <code>(mousemove)</code></h2>
+        <p>Track mouse position with <code>(mousemove)</code>.</p>
+        <div class="mouse-tracker"
+             (mousemove)="onMouseMove($event)"
+             (mouseenter)="onMouseEnter()"
+             (mouseleave)="onMouseLeave()">
+          Move mouse here! &nbsp; X: {{ mousePosition.x }} | Y: {{ mousePosition.y }}
+        </div>
+  
+        <h2>D — Color Picker <code>(change)</code></h2>
+        <label>Pick a color:
+          <input type="color" [value]="selectedColor" (change)="onColorChange($event)" />
+        </label>
+        <p>Selected Color: <span [style.color]="selectedColor">{{ selectedColor }}</span></p>
+  
+        <h2>E — Input Event <code>(input)</code></h2>
+        <p><code>(input)</code> fires on every keystroke.</p>
+        <input type="text" class="form-control" style="width:20em"
+               placeholder="Type here (input event)"
+               (input)="onInputChange($event)" />
+        <p>You typed: {{ typedInput }}</p>
+  
+        <h2>F — Select Change <code>(change)</code></h2>
+        <select [(ngModel)]="selectedFramework"
+                (change)="onSelectionChange(selectedFramework)"
+                class="form-select form-select-lg mb-3">
+          <option value="" disabled>Select a framework</option>
+          @for (framework of frameworks; track framework.name) {
+            <option [value]="framework.name">{{ framework.value }}</option>
+          }
+        </select>
+        <p>Selected Framework: {{ selectedFramework }}</p>
+  
+        <h2>G — Form Submit <code>(submit)</code></h2>
+        <form (submit)="onFormSubmit($event)" class="d-flex gap-2">
+          <input type="text" [value]="inputValue"
+                 (input)="inputValue = $any($event).target.value"
+                 class="form-control" style="width:25%" />
+          <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+        <p>{{ formMessage }}</p>
+  
+        <h2>H — Double Click & Right Click</h2>
+        <div (dblclick)="onDoubleClick()" class="dblclick-area">
+          Double-click me!
+        </div>
+        <div (contextmenu)="onRightClick($event)" class="rightclick-area">
+          Right-click me!
+        </div>
+  
+        <h2>I — Event Log</h2>
+        <div class="event-log">
+          <strong>Event Log (last 5):</strong>
+          @for (entry of eventLog; track entry) {
+            <p>{{ entry }}</p>
+          }
+        </div>
+  
+      </div>
+    </div>
+  </div>

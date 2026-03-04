@@ -1,0 +1,5 @@
+/* See page-shared.css for common rules */
+:host { display: block; }
+.container { max-width: 860px; }
+h3 { font-size: 1.4rem; font-weight: 700; color: #ddeaf6; padding-bottom: 10px; border-bottom: 1px solid rgba(100,155,195,0.14); margin-bottom: 14px; }
+pre { background: rgba(8,13,22,0.85) !important; border: 1px solid rgba(100,155,195,0.16) !important; border-radius: 10px !important; color: #6098c0 !important; font-size: 12px !important; padding: 14px 16px !important; }
