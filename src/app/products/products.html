@@ -1,0 +1,56 @@
+<div class="container py-4">
+  <h4 class="mb-3">Product List</h4>
+
+  <table class="table table-dark table-hover align-middle">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of products; track product.id) {
+        <tr>
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.status }}</td>
+          <td>
+            <button class="btn btn-info btn-sm" (click)="viewProduct(product)">
+              View
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+@if (showModal) {
+  <div class="overlay" (click)="closeModal()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+
+      <div class="modal-top">
+        <span>Product Details</span>
+        <button (click)="closeModal()">✕</button>
+      </div>
+
+      @if (selectedProduct) {
+        <div class="modal-body">
+          <div class="detail"><label>ID</label><span>{{ selectedProduct.id }}</span></div>
+          <div class="detail"><label>Name</label><span>{{ selectedProduct.name }}</span></div>
+          <div class="detail"><label>Brand</label><span>{{ selectedProduct.brand }}</span></div>
+          <div class="detail"><label>Category</label><span>{{ selectedProduct.category }}</span></div>
+          <div class="detail"><label>Price</label><span>₱{{ selectedProduct.price }} / kg</span></div>
+          <div class="detail"><label>Stock</label><span>{{ selectedProduct.stock }}</span></div>
+          <div class="detail"><label>Status</label><span>{{ selectedProduct.status }}</span></div>
+          <div class="detail"><label>Rating</label><span>{{ selectedProduct.rating }} / 5</span></div>
+          <div class="detail"><label>Discount</label><span>{{ selectedProduct.discount }}%</span></div>
+          <div class="detail"><label>Description</label><span>{{ selectedProduct.description }}</span></div>
+        </div>
+      }
+
+    </div>
+  </div>
+}

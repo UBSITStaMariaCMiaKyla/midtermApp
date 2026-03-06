@@ -8,6 +8,8 @@ import { Property } from './databinding/property/property';
 import { Event } from './databinding/event/event';
 import { TwoWay } from './databinding/two-way/two-way';
 
+import { Products } from './products/products';
+
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
@@ -18,6 +20,8 @@ export const routes: Routes = [
   { path: 'databinding/property', component: Property },
   { path: 'databinding/event', component: Event },
   { path: 'databinding/two-way', component: TwoWay },
+
+  { path: 'products', component: Products },
 
   { path: '**', redirectTo: 'home' },
 ];
