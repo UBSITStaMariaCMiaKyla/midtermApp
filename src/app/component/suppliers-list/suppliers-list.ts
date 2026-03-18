@@ -12,6 +12,7 @@ import { SupplierService } from '../../services/supplier';
   styleUrls: ['./suppliers-list.css']
 })
 export class SuppliersListComponent implements OnInit {
+  // Holds the list of suppliers to display in the table
   suppliers: Supplier[] = [];
 
   constructor(private supplierService: SupplierService, private router: Router) {}
@@ -20,6 +21,7 @@ export class SuppliersListComponent implements OnInit {
     this.suppliers = this.supplierService.getSuppliers();
   }
 
+  // Navigates to the details page of the selected supplier
   viewSupplierDetails(id: number): void {
     this.router.navigate(['/suppliers', id]);
   }

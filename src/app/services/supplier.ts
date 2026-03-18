@@ -20,14 +20,18 @@ export class SupplierService {
     { id: 10, supplierName: 'Dagul', location: 'Santa Cruz, Laguna', email: 'dagul@jackfruitfarms.ph', contactPerson: 'Dagul', phone: '09031234510', productsSupplied: ['Langka (Jackfruit)', 'Marang'], category: 'Fruit Supplier', isActive: true },
   ];
 
+
+  // Returns the full list of suppliers
   getSuppliers(): Supplier[] {
     return this.suppliers;
   }
 
+  // Finds and returns one supplier using their ID
   getSupplierById(id: number): Supplier | undefined {
     return this.suppliers.find(s => s.id === id);
   }
 
+  // Updates an existing supplier's data in the list
   updateSupplier(updatedSupplier: Supplier): void {
     const index = this.suppliers.findIndex(s => s.id === updatedSupplier.id);
     if (index !== -1) {
